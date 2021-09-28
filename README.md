@@ -1,6 +1,8 @@
+<p align="center"><a href="https://g0ejswi3ymsl.swipepages.net/" target="_blank"><img src="https://media.swipepages.com/2021/9/logo-lucely-750.png" width="400"></a></p>
+
 # lucely
 
-A new Flutter project.
+Lucely aplikasi yang bergerak di kesehatan mental dan pengembangan diri yang mudah digunakan untuk menememani kamu setiap harinya dalam menjaga stabilitas kesehatan mentalmu. Kami selalu berusaha meningkatkan layanan dan menyediakan lebih banyak variasi di dalamnya yang dapat diakses dari mana saja dan kapan saja. Sehingga mampu memberikan kemudahan dan kenyamanan bagi pengguna untuk mendapatkan layanan seputar kesehatan dan pengembangan diri.
 
 ## Getting Started
 
