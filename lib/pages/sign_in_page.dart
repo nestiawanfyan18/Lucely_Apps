@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lucely/component.dart';
 import 'package:lucely/theme.dart';
 
 class SignIn extends StatelessWidget {
@@ -35,143 +36,26 @@ class SignIn extends StatelessWidget {
       );
     }
 
-    Widget emailInput() {
-      return Container(
-        margin: EdgeInsets.only(top: 33),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // label
-            Container(
-              child: Text(
-                "Email Address",
-                style: primaryTextStyle.copyWith(
-                  fontWeight: semibold,
-                  fontSize: 16,
-                  letterSpacing: .3,
-                ),
-              ),
-            ),
+    Widget emailInput() => TextContainer(
+          label: "Email Address",
+          placeholder: "Enter your Email Address",
+          imageUrl: "assets/images/email_icon.png",
+          containerHeight: 50,
+          topMargin: 33,
+          isPassword: false,
+        );
 
-            SizedBox(
-              height: 12,
-            ),
+    Widget passwordInput() => TextContainer(
+          label: "Password",
+          placeholder: "Enter your Password",
+          imageUrl: "assets/images/password_icon.png",
+          containerHeight: 50,
+          topMargin: 20,
+          isPassword: true,
+        );
 
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: backgroundFormColor,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/images/email_icon.png",
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        decoration: InputDecoration.collapsed(
-                          hintText: "Enter your Email Address",
-                          hintStyle: secondaryTextStyle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget passwordInput() {
-      return Container(
-        margin: EdgeInsets.only(top: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // label
-            Container(
-              child: Text(
-                "Password",
-                style: primaryTextStyle.copyWith(
-                  fontWeight: semibold,
-                  fontSize: 16,
-                  letterSpacing: .3,
-                ),
-              ),
-            ),
-
-            SizedBox(
-              height: 12,
-            ),
-
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: backgroundFormColor,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/images/password_icon.png",
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        obscureText: true,
-                        decoration: InputDecoration.collapsed(
-                          hintText: "Enter your Password",
-                          hintStyle: secondaryTextStyle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget signInButton() {
-      return Container(
-        height: 50,
-        width: double.infinity,
-        margin: EdgeInsets.only(top: 30),
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/home');
-          },
-          child: Text("Sign In",
-              style: thiridTextStyle.copyWith(
-                fontSize: 18,
-                fontWeight: medium,
-              )),
-          style: TextButton.styleFrom(
-              backgroundColor: primaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7),
-              )),
-        ),
-      );
-    }
+    Widget signInButton() => RegularButton(
+        color: primaryColor, text: "Sign In", context: context, route: "/home");
 
     Widget footer() {
       return Container(
