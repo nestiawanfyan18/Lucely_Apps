@@ -1,5 +1,3 @@
-// ignore_for_file: unused_label
-
 import 'package:flutter/material.dart';
 import 'package:lucely/pages/homes/education_page.dart';
 import 'package:lucely/pages/homes/favorite_page.dart';
@@ -108,7 +106,7 @@ class _MainPageState extends State<MainPage> {
       );
     }
 
-    Widget body() {
+    Widget bodyPageMain() {
       switch (currentIndex) {
         case 0:
           return HomePage();
@@ -133,7 +131,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: backgroundColor,
       bottomNavigationBar: customBottomNav(),
-      body: body(),
+      body: bodyPageMain(),
     );
   }
 }
