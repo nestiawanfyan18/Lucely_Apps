@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
+    FlutterStatusbarcolor.setStatusBarColor(secondaryTextColor);
 
     Widget customBottomNav() {
       return Container(
@@ -137,7 +137,17 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         extendBody: true,
-        bottomNavigationBar: customBottomNav(),
+        bottomNavigationBar: Container(
+          child: customBottomNav(),
+          decoration: BoxDecoration(
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Color(0xFFF9F9F9).withOpacity(.3),
+                blurRadius: 100,
+              ),
+            ],
+          ),
+        ),
         body: bodyPageMain(),
       ),
     );
