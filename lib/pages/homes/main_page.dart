@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:lucely/pages/homes/education_page.dart';
 import 'package:lucely/pages/homes/favorite_page.dart';
 import 'package:lucely/pages/homes/home_page.dart';
@@ -17,6 +19,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
+
     Widget customBottomNav() {
       return Container(
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -129,11 +133,13 @@ class _MainPageState extends State<MainPage> {
       }
     }
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      extendBody: true,
-      bottomNavigationBar: customBottomNav(),
-      body: bodyPageMain(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        extendBody: true,
+        bottomNavigationBar: customBottomNav(),
+        body: bodyPageMain(),
+      ),
     );
   }
 }
