@@ -1,4 +1,4 @@
-<p align="center"><a href="https://g0ejswi3ymsl.swipepages.net/" target="_blank"><img src="https://media.swipepages.com/2021/9/logo-lucely-750.png" width="400"></a></p>
+<p align="center" style="background-color: #fff;padding:20px;border-radius:10px;"><a href="https://g0ejswi3ymsl.swipepages.net/" target="_blank"><img src="https://media.swipepages.com/2021/9/logo-lucely-750.png" width="400"></a></p>
 
 # lucely
 
