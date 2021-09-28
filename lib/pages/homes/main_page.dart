@@ -23,6 +23,7 @@ class _MainPageState extends State<MainPage> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: BottomNavigationBar(
+            elevation: 0,
             selectedFontSize: 0,
             backgroundColor: primaryColor,
             type: BottomNavigationBarType.fixed,
@@ -129,7 +130,8 @@ class _MainPageState extends State<MainPage> {
     }
 
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.transparent,
+      extendBody: true,
       bottomNavigationBar: customBottomNav(),
       body: bodyPageMain(),
     );
