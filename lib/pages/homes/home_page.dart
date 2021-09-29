@@ -415,13 +415,44 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: backgroundColor,
+      appBar: AppBar(
+        toolbarHeight: 75,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Image.asset(
+          'assets/images/logo.png',
+          width: 85,
+        ),
+        actions: [
+          Container(
+            width: 45,
+            height: 50,
+            margin: EdgeInsets.symmetric(
+              vertical: 15,
+              horizontal: 15,
+            ),
+            padding: EdgeInsets.all(6),
+            child: IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                "assets/images/alert_icon.png",
+                width: 30,
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: alertColor,
+              borderRadius: BorderRadius.circular(100),
+            ),
+          )
+        ],
+      ),
       body: Container(
-        margin: EdgeInsets.symmetric(
+        padding: EdgeInsets.symmetric(
           horizontal: defaultMargin,
         ),
         child: ListView(
           children: [
-            header(),
+            // header(),
             selamatDatangUser(),
             aktivitas(),
             kondisiPsikologi(),
