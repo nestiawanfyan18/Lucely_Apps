@@ -98,6 +98,7 @@ class EducationPage extends StatelessWidget {
                 cardEducation(),
                 cardEducation(),
                 cardEducation(),
+                cardEducation(),
               ],
             )
           ],
