@@ -55,7 +55,10 @@ class SignIn extends StatelessWidget {
         );
 
     Widget signInButton() => RegularButton(
-        color: primaryColor, text: "Sign In", context: context, route: "/home");
+        color: primaryColor,
+        text: "Sign In",
+        contextParent: context,
+        route: "/home");
 
     Widget footer() {
       return Container(
@@ -103,15 +106,19 @@ class SignIn extends StatelessWidget {
               horizontal: defaultMargin,
             ),
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.start,
+              child: ListView(
                 children: [
-                  header(),
-                  emailInput(),
-                  passwordInput(),
-                  signInButton(),
-                  footer(),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      header(),
+                      emailInput(),
+                      passwordInput(),
+                      signInButton(),
+                      footer(),
+                    ],
+                  ),
                 ],
               ),
             ),

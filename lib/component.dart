@@ -86,13 +86,13 @@ class RegularButton extends StatelessWidget {
       {Key? key,
       required this.color,
       required this.text,
-      required this.context,
+      required this.contextParent,
       required this.route})
       : super(key: key);
 
   final Color color;
   final String text;
-  final BuildContext context;
+  final BuildContext contextParent;
   final String route;
 
   @override
@@ -103,7 +103,7 @@ class RegularButton extends StatelessWidget {
       margin: EdgeInsets.only(top: 30),
       child: TextButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, route);
+          Navigator.pushReplacementNamed(contextParent, route);
         },
         child: Text(text,
             style: thiridTextStyle.copyWith(
