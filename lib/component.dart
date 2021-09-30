@@ -119,3 +119,26 @@ class RegularButton extends StatelessWidget {
     );
   }
 }
+
+class IconButtonBackApps extends StatelessWidget {
+  const IconButtonBackApps({
+    Key? key,
+    required this.route,
+  }) : super(key: key);
+
+  final String? route;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Image.asset(
+        'assets/images/back_icon.png',
+        width: 23,
+        height: 23,
+      ),
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, route.toString());
+      },
+    );
+  }
+}

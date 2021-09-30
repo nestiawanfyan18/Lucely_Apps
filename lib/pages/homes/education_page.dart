@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lucely/theme.dart';
 
+import '../../component.dart';
+
 class EducationPage extends StatelessWidget {
   const EducationPage({Key? key}) : super(key: key);
 
@@ -31,12 +33,12 @@ class EducationPage extends StatelessWidget {
         title: 'Pentingnya Kesehatan Mental',
         tag: '#Mental',
         date: '17 Agustus 2021',
-        route: '/home');
+        route: '/listEducation');
 
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        toolbarHeight: 75,
+        toolbarHeight: appBarHeight,
         title: Text(
           "Education",
           style: primaryTextStyle.copyWith(
@@ -46,16 +48,7 @@ class EducationPage extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: Image.asset(
-            'assets/images/back_icon.png',
-            width: 23,
-            height: 23,
-          ),
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/home');
-          },
-        ),
+        leading: IconButtonBackApps(route: '/home'),
         actions: [
           Container(
             width: 45,
@@ -134,7 +127,7 @@ class CardEducation extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushReplacementNamed(context, route.toString());
+          Navigator.pushNamed(context, route.toString());
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

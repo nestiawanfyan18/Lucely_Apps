@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 double defaultMargin = 30.0;
+double appBarHeight = 75.0;
 
 Color primaryColor = Color(0xff2BC7BD);
 Color alertColor = Color(0xffF64A4A);
