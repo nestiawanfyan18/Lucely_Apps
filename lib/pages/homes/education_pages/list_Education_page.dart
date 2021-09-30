@@ -99,6 +99,83 @@ class ListEducationPage extends StatelessWidget {
                           numberChaper: 1,
                           route: '/home',
                         ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
+
+                        ItemChapter(
+                          title: "Awalan yang menyakitkan",
+                          tagEducation: "Edukasi Mental",
+                          numberChaper: 1,
+                          route: '/home',
+                        ),
                       ],
                     ),
                   );
@@ -128,25 +205,77 @@ class ItemChapter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(
-        vertical: 20,
-      ),
-      padding: EdgeInsets.symmetric(
-        vertical: 15,
-        horizontal: 20,
-      ),
-      child: Row(
-        children: [],
-      ),
-      decoration: BoxDecoration(
-        color: backgroundCardColor,
-        border: Border.all(
-          width: .6,
-          color: secondaryTextColor,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, route.toString());
+      },
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.only(
+          top: 20,
         ),
-        borderRadius: BorderRadius.circular(7),
+        padding: EdgeInsets.symmetric(
+          vertical: 15,
+          horizontal: 20,
+        ),
+        child: Row(
+          children: [
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    child: Text(
+                      title.toString(),
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 14,
+                        fontWeight: semibold,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Text(
+                            tagEducation.toString(),
+                            style: secondaryTextStyle.copyWith(
+                              fontSize: 11,
+                              fontWeight: medium,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          child: Text('-'),
+                        ),
+                        Container(
+                          child: Text(
+                            'Chapter ' + numberChaper.toString(),
+                            style: secondaryTextStyle.copyWith(
+                              fontSize: 11,
+                              fontWeight: medium,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+        decoration: BoxDecoration(
+          color: backgroundCardColor,
+          border: Border.all(
+            width: .6,
+            color: secondaryTextColor,
+          ),
+          borderRadius: BorderRadius.circular(7),
+        ),
       ),
     );
   }
