@@ -21,6 +21,9 @@ class ListEducationPage extends StatelessWidget {
           ),
         ),
         leading: IconButtonBackApps(),
+        actions: [
+          EmergencyButtonAppbar(),
+        ],
       ),
       body: SizedBox.expand(
         child: Stack(

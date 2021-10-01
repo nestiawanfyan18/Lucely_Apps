@@ -149,3 +149,33 @@ class IconButtonBackApps extends StatelessWidget {
     );
   }
 }
+
+class EmergencyButtonAppbar extends StatelessWidget {
+  const EmergencyButtonAppbar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 45,
+      height: 50,
+      margin: EdgeInsets.symmetric(
+        vertical: 15,
+        horizontal: 15,
+      ),
+      padding: EdgeInsets.all(6),
+      child: IconButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/emergency');
+        },
+        icon: Image.asset(
+          "assets/images/alert_icon.png",
+          width: 30,
+        ),
+      ),
+      decoration: BoxDecoration(
+        color: alertColor,
+        borderRadius: BorderRadius.circular(100),
+      ),
+    );
+  }
+}

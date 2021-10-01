@@ -51,26 +51,7 @@ class EducationPage extends StatelessWidget {
         elevation: 0,
         // leading: IconButtonBackApps(route: '/home'),
         actions: [
-          Container(
-            width: 45,
-            height: 50,
-            margin: EdgeInsets.symmetric(
-              vertical: 15,
-              horizontal: 15,
-            ),
-            padding: EdgeInsets.all(5),
-            child: IconButton(
-              onPressed: () {},
-              icon: Image.asset(
-                "assets/images/alert_icon.png",
-                width: 30,
-              ),
-            ),
-            decoration: BoxDecoration(
-              color: alertColor,
-              borderRadius: BorderRadius.circular(100),
-            ),
-          )
+          EmergencyButtonAppbar(),
         ],
       ),
       body: Container(
