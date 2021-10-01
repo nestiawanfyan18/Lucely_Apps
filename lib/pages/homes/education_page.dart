@@ -38,6 +38,7 @@ class EducationPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: appBarHeight,
         title: Text(
           "Education",
@@ -48,7 +49,7 @@ class EducationPage extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButtonBackApps(route: '/home'),
+        // leading: IconButtonBackApps(route: '/home'),
         actions: [
           Container(
             width: 45,

@@ -416,6 +416,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: 75,
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -433,7 +434,9 @@ class HomePage extends StatelessWidget {
             ),
             padding: EdgeInsets.all(6),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/emergency');
+              },
               icon: Image.asset(
                 "assets/images/alert_icon.png",
                 width: 30,

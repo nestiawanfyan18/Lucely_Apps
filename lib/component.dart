@@ -10,6 +10,7 @@ class TextContainer extends StatelessWidget {
       this.imageUrl,
       this.containerHeight,
       this.topMargin,
+      this.maxLinesForm = 1,
       required this.isPassword})
       : super(key: key);
 
@@ -19,6 +20,7 @@ class TextContainer extends StatelessWidget {
   final double? containerHeight;
   final double? topMargin;
   final bool isPassword;
+  final int? maxLinesForm;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,10 @@ class TextContainer extends StatelessWidget {
           Container(
             height:
                 (containerHeight != null) ? containerHeight?.toDouble() : 50,
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: (maxLinesForm == 1) ? 0 : 12,
+            ),
             decoration: BoxDecoration(
               color: backgroundFormColor,
               borderRadius: BorderRadius.circular(12),
@@ -63,6 +68,8 @@ class TextContainer extends StatelessWidget {
                         ),
                   Expanded(
                     child: TextFormField(
+                      // (maxLines != null)
+                      maxLines: maxLinesForm,
                       style: primaryTextStyle,
                       obscureText: isPassword,
                       decoration: InputDecoration.collapsed(
@@ -86,13 +93,13 @@ class RegularButton extends StatelessWidget {
       {Key? key,
       required this.color,
       required this.text,
-      required this.context,
+      this.context,
       required this.route})
       : super(key: key);
 
   final Color color;
   final String text;
-  final BuildContext context;
+  final BuildContext? context;
   final String route;
 
   @override
@@ -123,10 +130,10 @@ class RegularButton extends StatelessWidget {
 class IconButtonBackApps extends StatelessWidget {
   const IconButtonBackApps({
     Key? key,
-    required this.route,
+    // required this.route,
   }) : super(key: key);
 
-  final String? route;
+  // final String? route;
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +144,7 @@ class IconButtonBackApps extends StatelessWidget {
         height: 23,
       ),
       onPressed: () {
-        Navigator.pushReplacementNamed(context, route.toString());
+        Navigator.pop(context);
       },
     );
   }

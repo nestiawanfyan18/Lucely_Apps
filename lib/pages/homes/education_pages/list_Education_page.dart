@@ -20,7 +20,7 @@ class ListEducationPage extends StatelessWidget {
             fontSize: 16,
           ),
         ),
-        leading: IconButtonBackApps(route: '/education'),
+        leading: IconButtonBackApps(),
       ),
       body: SizedBox.expand(
         child: Stack(
@@ -207,7 +207,7 @@ class ItemChapter extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, route.toString());
+        Navigator.pushReplacementNamed(context, route.toString());
       },
       child: Container(
         width: double.infinity,
