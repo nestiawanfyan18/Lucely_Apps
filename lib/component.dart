@@ -94,6 +94,7 @@ class RegularButton extends StatelessWidget {
       required this.color,
       required this.text,
       this.context,
+      this.replacePage = false,
       required this.route})
       : super(key: key);
 
@@ -101,6 +102,7 @@ class RegularButton extends StatelessWidget {
   final String text;
   final BuildContext? context;
   final String route;
+  final bool replacePage;
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +112,9 @@ class RegularButton extends StatelessWidget {
       margin: EdgeInsets.only(top: 30),
       child: TextButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, route);
+          (replacePage == true)
+              ? Navigator.pushReplacementNamed(context, route)
+              : Navigator.pushNamed(context, route);
         },
         child: Text(text,
             style: thiridTextStyle.copyWith(

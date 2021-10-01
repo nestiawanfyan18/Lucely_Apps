@@ -66,26 +66,26 @@ class EmergencyPage extends StatelessWidget {
         ),
         leading: IconButtonBackApps(),
       ),
-      body: SizedBox.expand(
-        child: Stack(
-          children: [
-            Container(
-              color: Colors.purple,
-              child: Center(
-                child: Text('Bagian Maps'),
+      body: GestureDetector(
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
+
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
+        child: SizedBox.expand(
+          child: Stack(
+            children: [
+              Container(
+                color: Colors.purple,
+                child: Center(
+                  child: Text('Bagian Maps'),
+                ),
               ),
-            ),
 
-            // draggable
-            GestureDetector(
-              onTap: () {
-                FocusScopeNode currentFocus = FocusScope.of(context);
-
-                if (!currentFocus.hasPrimaryFocus) {
-                  currentFocus.unfocus();
-                }
-              },
-              child: SizedBox.expand(
+              // draggable
+              SizedBox.expand(
                 child: DraggableScrollableSheet(
                   initialChildSize: 0.60,
                   minChildSize: 0.60,
@@ -149,7 +149,8 @@ class EmergencyPage extends StatelessWidget {
                             RegularButton(
                               text: 'Ajukan bantuan',
                               color: primaryColor,
-                              route: '/home',
+                              route: '/emergency-search-psikologi',
+                              replacePage: true,
                             ),
                           ],
                         ),
@@ -158,8 +159,8 @@ class EmergencyPage extends StatelessWidget {
                   },
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

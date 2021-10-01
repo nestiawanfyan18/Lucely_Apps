@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucely/pages/Sign_up_page.dart';
 import 'package:lucely/pages/homes/education_page.dart';
 import 'package:lucely/pages/homes/education_pages/list_Education_page.dart';
+import 'package:lucely/pages/homes/emergency_pages/search_psikologi_page.dart';
 import 'package:lucely/pages/homes/emergency_pages/main_emergency_page.dart';
 import 'package:lucely/pages/homes/main_page.dart';
 import 'package:lucely/pages/sign_in_page.dart';
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
             ),
         '/listEducation': (context) => ListEducationPage(),
         '/emergency': (context) => EmergencyPage(),
+        '/emergency-search-psikologi': (context) =>
+            SearchPsikologiEmergencyPage(),
       },
     );
   }

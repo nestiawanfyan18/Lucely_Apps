@@ -55,7 +55,12 @@ class SignIn extends StatelessWidget {
         );
 
     Widget signInButton() => RegularButton(
-        color: primaryColor, text: "Sign In", context: context, route: "/home");
+          color: primaryColor,
+          text: "Sign In",
+          context: context,
+          route: "/home",
+          replacePage: true,
+        );
 
     Widget footer() {
       return Container(
