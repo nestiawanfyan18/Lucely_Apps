@@ -8,7 +8,12 @@ import 'package:lucely/pages/homes/profile_page.dart';
 import 'package:lucely/theme.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  MainPage({
+    Key? key,
+    this.indexPages,
+  }) : super(key: key);
+
+  int? indexPages;
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -16,10 +21,13 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(secondaryTextColor);
+
+    (widget.indexPages != null)
+        ? currentIndex = widget.indexPages!
+        : currentIndex;
 
     Widget customBottomNav() {
       return Container(
@@ -34,7 +42,7 @@ class _MainPageState extends State<MainPage> {
             currentIndex: currentIndex,
             onTap: (value) {
               // ignore: avoid_print
-              // print(currentIndex);
+              print(currentIndex);
               setState(() {
                 currentIndex = value;
               });
@@ -48,10 +56,14 @@ class _MainPageState extends State<MainPage> {
                   child: Image.asset(
                     'assets/images/home_icon.png',
                     width: 24,
-                    color: currentIndex == 0 ? primaryColor : backgroundColor,
+                    color: (currentIndex == 0 || widget.indexPages == 0)
+                        ? primaryColor
+                        : backgroundColor,
                   ),
                   decoration: BoxDecoration(
-                    color: currentIndex == 0 ? backgroundColor : primaryColor,
+                    color: (currentIndex == 0 || widget.indexPages == 0)
+                        ? backgroundColor
+                        : primaryColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
@@ -64,10 +76,14 @@ class _MainPageState extends State<MainPage> {
                   child: Image.asset(
                     'assets/images/book_icon.png',
                     width: 24,
-                    color: currentIndex == 1 ? primaryColor : backgroundColor,
+                    color: (currentIndex == 1 || widget.indexPages == 1)
+                        ? primaryColor
+                        : backgroundColor,
                   ),
                   decoration: BoxDecoration(
-                    color: currentIndex == 1 ? backgroundColor : primaryColor,
+                    color: (currentIndex == 1 || widget.indexPages == 1)
+                        ? backgroundColor
+                        : primaryColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
@@ -80,10 +96,14 @@ class _MainPageState extends State<MainPage> {
                   child: Image.asset(
                     'assets/images/love_icon.png',
                     width: 24,
-                    color: currentIndex == 2 ? primaryColor : backgroundColor,
+                    color: (currentIndex == 2 || widget.indexPages == 2)
+                        ? primaryColor
+                        : backgroundColor,
                   ),
                   decoration: BoxDecoration(
-                    color: currentIndex == 2 ? backgroundColor : primaryColor,
+                    color: (currentIndex == 2 || widget.indexPages == 2)
+                        ? backgroundColor
+                        : primaryColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
@@ -96,10 +116,14 @@ class _MainPageState extends State<MainPage> {
                   child: Image.asset(
                     'assets/images/user_icon.png',
                     width: 24,
-                    color: currentIndex == 3 ? primaryColor : backgroundColor,
+                    color: (currentIndex == 3 || widget.indexPages == 3)
+                        ? primaryColor
+                        : backgroundColor,
                   ),
                   decoration: BoxDecoration(
-                    color: currentIndex == 3 ? backgroundColor : primaryColor,
+                    color: (currentIndex == 3 || widget.indexPages == 3)
+                        ? backgroundColor
+                        : primaryColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
@@ -111,24 +135,56 @@ class _MainPageState extends State<MainPage> {
       );
     }
 
-    Widget bodyPageMain() {
-      switch (currentIndex) {
+    // Widget bodyPageMain() {
+    //   switch (currentIndex) {
+    //     case 0:
+    //       return HomePage();
+    //       break;
+
+    //     case 1:
+    //       return EducationPage();
+    //       break;
+
+    //     case 2:
+    //       return FavoritePage();
+    //       break;
+
+    //     case 3:
+    //       return ProfilePage();
+    //       break;
+    //     default:
+    //       return HomePage();
+    //   }
+    // }
+
+    Widget bodyPageMainParam() {
+      switch ((widget.indexPages == null) ? currentIndex : widget.indexPages) {
         case 0:
+          currentIndex = 0;
+          widget.indexPages = null;
           return HomePage();
           break;
 
         case 1:
+          currentIndex = 1;
+          widget.indexPages = null;
           return EducationPage();
           break;
 
         case 2:
+          currentIndex = 2;
+          widget.indexPages = null;
           return FavoritePage();
           break;
 
         case 3:
+          currentIndex = 3;
+          widget.indexPages = null;
           return ProfilePage();
           break;
         default:
+          currentIndex = 0;
+          widget.indexPages = null;
           return HomePage();
       }
     }
@@ -148,7 +204,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        body: bodyPageMain(),
+        body: bodyPageMainParam(),
       ),
     );
   }

@@ -33,7 +33,7 @@ class ListEducationPage extends StatelessWidget {
             SizedBox.expand(
               child: DraggableScrollableSheet(
                 initialChildSize: 0.75,
-                minChildSize: 0.70,
+                minChildSize: 0.65,
                 maxChildSize: 0.98,
                 builder: (BuildContext c, s) {
                   return Container(

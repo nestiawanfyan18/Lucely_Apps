@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
         '/sign-in': (context) => SignIn(),
         '/sign-up': (context) => SignUp(),
         '/home': (context) => MainPage(),
-        '/education': (context) => EducationPage(),
+        '/education': (context) => MainPage(
+              indexPages: 1,
+            ),
         '/listEducation': (context) => ListEducationPage(),
       },
     );
