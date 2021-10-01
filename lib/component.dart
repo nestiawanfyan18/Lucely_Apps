@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lucely/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:latlong2/latlong.dart' as latLng;
+import 'package:flutter_map/flutter_map.dart';
 
 class TextContainer extends StatelessWidget {
   TextContainer(
@@ -180,6 +182,50 @@ class EmergencyButtonAppbar extends StatelessWidget {
         color: alertColor,
         borderRadius: BorderRadius.circular(100),
       ),
+    );
+  }
+}
+
+// Maps
+
+class MapsEmergency extends StatelessWidget {
+  const MapsEmergency({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterMap(
+      options: MapOptions(
+        center: latLng.LatLng(51.5, -0.09),
+        // zoom: 13.0,
+        maxZoom: 80,
+        minZoom: 5,
+      ),
+      layers: [
+        TileLayerOptions(
+            urlTemplate:
+                "https://api.mapbox.com/styles/v1/nestiawanfyan/cku8nhs832kds17o4lcir58xe/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibmVzdGlhd2FuZnlhbiIsImEiOiJja3RwMGJhOGcwaHRqMnFvYWNrMDBjYnhqIn0.WWCPydef08kkqsv6grN6UA",
+            // subdomains: ['a', 'b', 'c'],
+            // attributionBuilder: (_) {
+            //   return Text("© OpenStreetMap contributors");
+            // },
+            additionalOptions: {
+              'accessToken':
+                  'pk.eyJ1IjoibmVzdGlhd2FuZnlhbiIsImEiOiJja3RwMGJhOGcwaHRqMnFvYWNrMDBjYnhqIn0.WWCPydef08kkqsv6grN6UA',
+              'id': 'mapbox.mapbox-streets-v8',
+            }),
+        MarkerLayerOptions(
+          markers: [
+            Marker(
+              width: 80.0,
+              height: 80.0,
+              point: latLng.LatLng(51.5, -0.09),
+              builder: (ctx) => Container(
+                child: Text(''),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

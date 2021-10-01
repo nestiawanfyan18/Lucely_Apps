@@ -79,7 +79,8 @@ class SearchPsikologiEmergencyPage extends StatelessWidget {
           children: [
             Container(
               height: size.height * 0.65,
-              color: Colors.purple,
+              color: backgroundFormColor,
+              child: MapsEmergency(),
             ),
             SizedBox(
               child: DraggableScrollableSheet(

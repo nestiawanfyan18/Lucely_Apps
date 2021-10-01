@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lucely/component.dart';
 import 'package:lucely/theme.dart';
+import 'package:latlong2/latlong.dart' as latLng;
+import 'package:flutter_map/flutter_map.dart';
 
 class EmergencyPage extends StatelessWidget {
   const EmergencyPage({Key? key}) : super(key: key);
@@ -78,10 +80,8 @@ class EmergencyPage extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                color: Colors.purple,
-                child: Center(
-                  child: Text('Bagian Maps'),
-                ),
+                color: backgroundFormColor,
+                child: MapsEmergency(),
               ),
 
               // draggable

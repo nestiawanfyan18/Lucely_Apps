@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(secondaryTextColor);
+    FlutterStatusbarcolor.setStatusBarColor(Color(0xFFE9E9E9));
 
     (widget.indexPages != null)
         ? currentIndex = widget.indexPages!
