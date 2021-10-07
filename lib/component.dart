@@ -197,8 +197,9 @@ class MapsEmergency extends StatelessWidget {
       options: MapOptions(
         center: latLng.LatLng(51.5, -0.09),
         // zoom: 13.0,
-        maxZoom: 80,
+        maxZoom: 300,
         minZoom: 5,
+        // interactiveFlags: InteractiveFlag.pinchZoom | InteractiveFlag.drag,
       ),
       layers: [
         TileLayerOptions(

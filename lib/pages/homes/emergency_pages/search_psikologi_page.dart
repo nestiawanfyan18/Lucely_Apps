@@ -1,11 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:lucely/component.dart';
 import 'package:lucely/theme.dart';
 
-class SearchPsikologiEmergencyPage extends StatelessWidget {
+class SearchPsikologiEmergencyPage extends StatefulWidget {
   const SearchPsikologiEmergencyPage({Key? key}) : super(key: key);
 
   @override
+  State<SearchPsikologiEmergencyPage> createState() =>
+      _SearchPsikologiEmergencyPageState();
+}
+
+class _SearchPsikologiEmergencyPageState
+    extends State<SearchPsikologiEmergencyPage> {
+  @override
+  void initState() {
+    Timer(
+      Duration(seconds: 6),
+      () => Navigator.pushReplacementNamed(context, '/emergency-get-psycology'),
+    );
+
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 

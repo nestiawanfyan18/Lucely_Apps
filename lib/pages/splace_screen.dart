@@ -11,7 +11,6 @@ class SplaceScreen extends StatefulWidget {
 
 class _SplaceScreenState extends State<SplaceScreen> {
   @override
-  @override
   void initState() {
     Timer(
       Duration(seconds: 6),
