@@ -72,18 +72,20 @@ class EducationPage extends StatelessWidget {
                     children: [
                       // fiture 1
                       EducationCategory(
-                        images: 'assets/images/konsultasi.png',
+                        images:
+                            'assets/images/cover_comic/Manhua-Like-Apotheosis.jpg',
                         title: 'Komik',
                       ),
                       // fiture 2
                       EducationCategory(
-                        images: 'assets/images/konsultasi.png',
+                        images: 'assets/images/Artikel/Mengurangi_Stress.jpg',
                         title: 'Artikel',
                       ),
                       // fiture 3
                       EducationCategory(
-                        images: 'assets/images/konsultasi.png',
-                        title: 'PodCast',
+                        images:
+                            'assets/images/PodCast/img-profile-podcast.jpeg',
+                        title: 'Podcast',
                       ),
                     ],
                   ),
@@ -124,28 +126,28 @@ class EducationPage extends StatelessWidget {
             Wrap(
               children: [
                 ListKomik(
-                  image: 'assets/images/img_depresion.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_1.jpg',
+                  title: 'Solo Leveling',
                 ),
                 ListKomik(
-                  image: 'assets/images/konsultasi.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_2.jpg',
+                  title: 'Log Horizon',
                 ),
                 ListKomik(
-                  image: 'assets/images/img_depresion.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_3.jpg',
+                  title: 'Black Clover',
                 ),
                 ListKomik(
-                  image: 'assets/images/konsultasi.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_4.jpg',
+                  title: 'i\'m An Evil God ',
                 ),
                 ListKomik(
-                  image: 'assets/images/img_depresion.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_5.png',
+                  title: 'Reon And Friends',
                 ),
                 ListKomik(
-                  image: 'assets/images/konsultasi.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_7.jpg',
+                  title: '339 Year In Prison ',
                 ),
               ],
             )
@@ -176,12 +178,82 @@ class EducationPage extends StatelessWidget {
               imgProfile: 'assets/images/man.jpg',
               nameUser: 'Nestiawan Ferdiyanto',
               bioUser: 'Hidup Lebih Baik',
-              imgCover: 'assets/images/img_depresion.png',
+              imgCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
-            )
+            ),
+
+            CardArticle(
+              imgProfile: 'assets/images/man.jpg',
+              nameUser: 'Nestiawan Ferdiyanto',
+              bioUser: 'Hidup Lebih Baik',
+              imgCover: 'assets/images/Artikel/Meredakan_Cemas.jpg',
+              titleArticle:
+                  'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
+              dateArticle: '2 Minggu yang lalu',
+            ),
+
+            CardArticle(
+              imgProfile: 'assets/images/man.jpg',
+              nameUser: 'Nestiawan Ferdiyanto',
+              bioUser: 'Hidup Lebih Baik',
+              imgCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
+              titleArticle:
+                  'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
+              dateArticle: '2 Minggu yang lalu',
+            ),
             // article,
+          ],
+        ),
+      );
+    }
+
+    Widget podcast() {
+      return Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(
+                vertical: 20,
+              ),
+              child: Text(
+                'Podcast yang mungkin kamu suka',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: semibold,
+                ),
+              ),
+            ),
+            Wrap(
+              children: [
+                CardPodcast(
+                  title: 'Pengembangan Diri',
+                  imageCover: 'assets/images/Artikel/pengembangan_diri.jpg',
+                ),
+                CardPodcast(
+                  title: 'Pengendalian Emosi',
+                  imageCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
+                ),
+                CardPodcast(
+                  title: 'Meredakan Cemas',
+                  imageCover: 'assets/images/Artikel/Meredakan_Cemas.jpg',
+                ),
+                CardPodcast(
+                  title: 'Mengurangi Stress',
+                  imageCover: 'assets/images/Artikel/Mengurangi_Stress.jpg',
+                ),
+                CardPodcast(
+                  title: 'Pengembangan Diri',
+                  imageCover: 'assets/images/Artikel/Meredakan_Cemas.jpg',
+                ),
+                CardPodcast(
+                  title: 'Bahaya Pikiran Negatif',
+                  imageCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
+                ),
+              ],
+            ),
           ],
         ),
       );
@@ -216,14 +288,66 @@ class EducationPage extends StatelessWidget {
             aktivitas(),
             listKomik(),
             article(),
-            Wrap(
-              children: [
-                // cardEducation(),
-                // cardEducation(),
-              ],
-            )
+            podcast(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CardPodcast extends StatelessWidget {
+  const CardPodcast({
+    Key? key,
+    this.imageCover,
+    required this.title,
+    this.route,
+  }) : super(key: key);
+
+  final String? imageCover;
+  final String title;
+  final String? route;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: size.width * 0.28,
+              height: 90,
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(
+                    imageCover.toString(),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Text(
+              title.toString(),
+              style: primaryTextStyle.copyWith(
+                fontSize: 10,
+                fontWeight: medium,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -255,7 +379,7 @@ class ListKomik extends StatelessWidget {
         children: [
           Container(
             width: size.width * 0.27,
-            height: 120,
+            height: 150,
             decoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(7),
@@ -268,13 +392,13 @@ class ListKomik extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.symmetric(
-              vertical: 5,
+              vertical: 8,
               horizontal: 3,
             ),
             child: Text(
               title.toString(),
               style: primaryTextStyle.copyWith(
-                fontSize: 12,
+                fontSize: 10,
                 fontWeight: bold,
               ),
             ),
@@ -314,7 +438,7 @@ class CardArticle extends StatelessWidget {
             children: [
               Container(
                 width: 40,
-                height: 40,
+                height: 43,
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7),
@@ -339,7 +463,7 @@ class CardArticle extends StatelessWidget {
                           nameUser.toString(),
                           style: primaryTextStyle.copyWith(
                             fontSize: 12,
-                            fontWeight: medium,
+                            fontWeight: semibold,
                           ),
                         ),
                       ),
@@ -424,6 +548,17 @@ class CardArticle extends StatelessWidget {
               ],
             ),
           ),
+          Container(
+            margin: EdgeInsets.only(
+              bottom: 15,
+            ),
+            width: double.infinity,
+            height: 2,
+            decoration: BoxDecoration(
+              color: backgroundFormColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+          )
         ],
       ),
     );
@@ -563,7 +698,7 @@ class EducationCategory extends StatelessWidget {
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
-                    Radius.circular(15),
+                    Radius.circular(5),
                   ),
                 ),
                 image: DecorationImage(
