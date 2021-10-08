@@ -9,13 +9,31 @@ class KomikMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget recommended() {
-      return Container(
-        child: CardEducation(
-            images: 'assets/images/Artikel/pengembangan_diri.jpg',
-            title: 'test',
-            tag: '#123',
-            date: '123123',
-            route: '/home'),
+      List<RecommendedKomik> listRecommended = [
+        RecommendedKomik(
+          image:
+              'assets/images/cover_comic/Jepretan Layar 2021-06-26 pada 10.48.40.png',
+          emphasis: 'Top 1',
+          title: 'Bertarung Dengan Diri Sendiri',
+        ),
+        RecommendedKomik(
+          image:
+              'assets/images/cover_comic/Jepretan Layar 2021-06-26 pada 10.48.40.png',
+          emphasis: 'Top 1',
+          title: 'Bertarung Dengan Diri Sendiri',
+        ),
+        RecommendedKomik(
+          image:
+              'assets/images/cover_comic/Jepretan Layar 2021-06-26 pada 10.48.40.png',
+          emphasis: 'Top 1',
+          title: 'Bertarung Dengan Diri Sendiri',
+        ),
+      ];
+      return SizedBox(
+        height: 200.0,
+        child: RecommendedKomikList(
+          listRecommended: listRecommended,
+        ),
       );
     }
 
@@ -46,10 +64,13 @@ class KomikMainPage extends StatelessWidget {
           EmergencyButtonAppbar(),
         ],
       ),
-      body: Column(
-        children: [
-          recommended(),
-        ],
+      body: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        child: ListView(
+          children: [recommended()],
+        ),
       ),
     );
   }

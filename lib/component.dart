@@ -830,30 +830,91 @@ class EducationCategory extends StatelessWidget {
 }
 
 class RecommendedKomik extends StatelessWidget {
-  const RecommendedKomik({Key? key}) : super(key: key);
+  const RecommendedKomik({
+    Key? key,
+    required this.image,
+    required this.emphasis,
+    required this.title,
+  }) : super(key: key);
+
+  final String image;
+  final String emphasis;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: 170,
-      width: size.width * 0.6,
       margin: EdgeInsets.symmetric(
         vertical: 10,
         horizontal: 10,
       ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+      child: Stack(
+        children: <Widget>[
+          Container(
+            width: size.width * 0.75,
+            decoration: ShapeDecoration(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(image),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            width: size.width * 0.75,
+            height: 170,
+            child: Container(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color.fromARGB(200, 255, 255, 255),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '$emphasis - ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(title),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
 class RecommendedKomikList extends StatelessWidget {
-  const RecommendedKomikList({Key? key}) : super(key: key);
+  const RecommendedKomikList({Key? key, required this.listRecommended})
+      : super(key: key);
 
+  final List<RecommendedKomik> listRecommended;
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Expanded(
+      child: SizedBox(
+        height: 200.0,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: listRecommended,
+          shrinkWrap: true,
+        ),
+      ),
+    );
   }
 }
