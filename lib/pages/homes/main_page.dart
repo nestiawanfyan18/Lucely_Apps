@@ -6,6 +6,7 @@ import 'package:lucely/pages/homes/favorite_page.dart';
 import 'package:lucely/pages/homes/home_page.dart';
 import 'package:lucely/pages/homes/profile_page.dart';
 import 'package:lucely/theme.dart';
+import 'package:flutter/rendering.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({
@@ -14,13 +15,13 @@ class MainPage extends StatefulWidget {
   }) : super(key: key);
 
   int? indexPages;
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Color(0xFFE9E9E9));
@@ -134,28 +135,6 @@ class _MainPageState extends State<MainPage> {
         ),
       );
     }
-
-    // Widget bodyPageMain() {
-    //   switch (currentIndex) {
-    //     case 0:
-    //       return HomePage();
-    //       break;
-
-    //     case 1:
-    //       return EducationPage();
-    //       break;
-
-    //     case 2:
-    //       return FavoritePage();
-    //       break;
-
-    //     case 3:
-    //       return ProfilePage();
-    //       break;
-    //     default:
-    //       return HomePage();
-    //   }
-    // }
 
     Widget bodyPageMainParam() {
       switch ((widget.indexPages == null) ? currentIndex : widget.indexPages) {

@@ -136,10 +136,10 @@ class RegularButton extends StatelessWidget {
 class IconButtonBackApps extends StatelessWidget {
   const IconButtonBackApps({
     Key? key,
-    // required this.route,
+    this.route,
   }) : super(key: key);
 
-  // final String? route;
+  final String? route;
 
   @override
   Widget build(BuildContext context) {

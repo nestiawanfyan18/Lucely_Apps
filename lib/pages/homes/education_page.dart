@@ -3,9 +3,14 @@ import 'package:lucely/theme.dart';
 
 import '../../component.dart';
 
-class EducationPage extends StatelessWidget {
+class EducationPage extends StatefulWidget {
   const EducationPage({Key? key}) : super(key: key);
 
+  @override
+  State<EducationPage> createState() => _EducationPageState();
+}
+
+class _EducationPageState extends State<EducationPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -80,6 +85,7 @@ class EducationPage extends StatelessWidget {
                       EducationCategory(
                         images: 'assets/images/Artikel/Mengurangi_Stress.jpg',
                         title: 'Artikel',
+                        route: '/eduation-article',
                       ),
                       // fiture 3
                       EducationCategory(
@@ -685,6 +691,7 @@ class EducationCategory extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(10),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
             onTap: () {
