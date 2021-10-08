@@ -62,7 +62,7 @@ class SignIn extends StatelessWidget {
 
     Widget footer() {
       return Container(
-        margin: EdgeInsets.only(top: 40),
+        margin: EdgeInsets.symmetric(vertical: 40),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -101,25 +101,24 @@ class SignIn extends StatelessWidget {
         child: Scaffold(
           backgroundColor: backgroundColor,
           resizeToAvoidBottomInset: false,
-          body: Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-            ),
-            child: Center(
-              child: ListView(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      header(),
-                      emailInput(),
-                      passwordInput(),
-                      signInButton(),
-                      footer(),
-                    ],
-                  ),
-                ],
+          body: Center(
+            child: Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: defaultMargin,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+
+                  children: [
+                    header(),
+                    emailInput(),
+                    passwordInput(),
+                    signInButton(),
+                    footer(),
+                  ],
+                ),
               ),
             ),
           ),

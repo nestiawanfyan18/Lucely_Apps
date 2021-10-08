@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:lucely/theme.dart';
+import 'package:lucely/component.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+  static const List<SliderComponent> listAktivitas = [
+    SliderComponent(
+        imageUrl: "assets/images/konsultasi.png", label: 'Konsultasi'),
+    SliderComponent(imageUrl: 'assets/images/education.png', label: 'Edukasi'),
+    SliderComponent(
+        imageUrl: 'assets/images/mood_tracker.png', label: 'Mood Tracker'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -103,130 +111,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-
             // card Aktivitas
-            SizedBox(
-              height: 147,
-              child: ListView(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                children: [
-                  Row(
-                    children: [
-                      // fiture 1
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 110,
-                              height: 93,
-                              decoration: ShapeDecoration(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(15),
-                                  ),
-                                ),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      'assets/images/konsultasi.png'),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                vertical: 10,
-                              ),
-                              child: Text(
-                                'Konsultasi',
-                                style: primaryTextStyle.copyWith(
-                                  fontSize: 11,
-                                  fontWeight: medium,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-
-                      // Fiture 2
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 110,
-                              height: 93,
-                              decoration: ShapeDecoration(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(15),
-                                  ),
-                                ),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image:
-                                      AssetImage('assets/images/education.png'),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                vertical: 10,
-                              ),
-                              child: Text(
-                                'Edukasi',
-                                style: primaryTextStyle.copyWith(
-                                  fontSize: 11,
-                                  fontWeight: medium,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-
-                      // Fiture 3
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 110,
-                              height: 93,
-                              decoration: ShapeDecoration(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(15),
-                                  ),
-                                ),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      'assets/images/mood_tracker.png'),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                vertical: 10,
-                              ),
-                              child: Text(
-                                'Mood Tracker',
-                                style: primaryTextStyle.copyWith(
-                                  fontSize: 11,
-                                  fontWeight: medium,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
+            SliderBox(
+              listItems: listAktivitas,
             ),
           ],
         ),
@@ -303,57 +190,12 @@ class HomePage extends StatelessWidget {
             ),
 
             // card history
-            Container(
-              margin: EdgeInsets.only(
-                bottom: 10,
-              ),
-              padding: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    margin: EdgeInsets.only(right: 15),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: new DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage('assets/images/img_education-2.png'),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Lanjutkan Edukasi Kamu",
-                          style: thiridTextStyle.copyWith(
-                            fontWeight: semibold,
-                            fontSize: 14,
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(
-                            vertical: 3,
-                          ),
-                          child: Text(
-                            'Edukasi Mental - Chapter 13',
-                            style: thiridTextStyle.copyWith(
-                              fontSize: 12,
-                              fontWeight: regular,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            CustomCard(
+              imageUrl: 'assets/images/img_education-2.png',
+              title: "Lanjutkan Edukasi Kamu",
+              subtitle: 'Edukasi Mental - Chapter 13',
+              route: '#',
+              color: primaryColor,
             ),
 
             Container(

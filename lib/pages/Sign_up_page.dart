@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lucely/theme.dart';
+import 'package:lucely/component.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -35,204 +36,38 @@ class SignUp extends StatelessWidget {
       );
     }
 
-    Widget fullNameInput() {
-      return Container(
-        margin: EdgeInsets.only(top: 33),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // label
-            Container(
-              child: Text(
-                "Full Name",
-                style: primaryTextStyle.copyWith(
-                  fontWeight: semibold,
-                  fontSize: 16,
-                  letterSpacing: .3,
-                ),
-              ),
-            ),
+    Widget fullNameInput() => TextContainer(
+          label: "Full Name",
+          isPassword: false,
+          placeholder: "Enter your Name",
+          imageUrl: "assets/images/email_icon.png",
+          topMargin: 33,
+        );
 
-            const SizedBox(
-              height: 12,
-            ),
+    Widget emailInput() => TextContainer(
+          label: "Email Address",
+          isPassword: false,
+          placeholder: "Enter your Email Address",
+          imageUrl: "assets/images/email_icon.png",
+        );
 
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: backgroundFormColor,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/images/email_icon.png",
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        decoration: InputDecoration.collapsed(
-                          hintText: "Enter your Name",
-                          hintStyle: secondaryTextStyle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
+    Widget passwordInput() => TextContainer(
+          label: "Password",
+          isPassword: true,
+          placeholder: "Enter your Password",
+          imageUrl: "assets/images/password_icon.png",
+        );
 
-    Widget emailInput() {
-      return Container(
-        margin: EdgeInsets.only(top: 33),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // label
-            Container(
-              child: Text(
-                "Email Address",
-                style: primaryTextStyle.copyWith(
-                  fontWeight: semibold,
-                  fontSize: 16,
-                  letterSpacing: .3,
-                ),
-              ),
-            ),
-
-            SizedBox(
-              height: 12,
-            ),
-
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: backgroundFormColor,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/images/email_icon.png",
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        decoration: InputDecoration.collapsed(
-                          hintText: "Enter your Email Address",
-                          hintStyle: secondaryTextStyle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget passwordInput() {
-      return Container(
-        margin: EdgeInsets.only(top: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // label
-            Container(
-              child: Text(
-                "Password",
-                style: primaryTextStyle.copyWith(
-                  fontWeight: semibold,
-                  fontSize: 16,
-                  letterSpacing: .3,
-                ),
-              ),
-            ),
-
-            SizedBox(
-              height: 12,
-            ),
-
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: backgroundFormColor,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/images/password_icon.png",
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        obscureText: true,
-                        decoration: InputDecoration.collapsed(
-                          hintText: "Enter your Password",
-                          hintStyle: secondaryTextStyle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget signUpButton() {
-      return Container(
-        height: 50,
-        width: double.infinity,
-        margin: EdgeInsets.only(top: 30),
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/home');
-          },
-          child: Text("Sign Up",
-              style: thiridTextStyle.copyWith(
-                fontSize: 18,
-                fontWeight: medium,
-              )),
-          style: TextButton.styleFrom(
-              backgroundColor: primaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7),
-              )),
-        ),
-      );
-    }
+    Widget signUpButton() => RegularButton(
+          color: primaryColor,
+          text: "Sign Up",
+          contextParent: context,
+          route: '/home',
+        );
 
     Widget footer() {
       return Container(
-        margin: EdgeInsets.only(top: 40),
+        margin: EdgeInsets.symmetric(vertical: 40),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -271,22 +106,24 @@ class SignUp extends StatelessWidget {
         child: Scaffold(
           backgroundColor: backgroundColor,
           resizeToAvoidBottomInset: false,
-          body: Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-            ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  header(),
-                  fullNameInput(),
-                  emailInput(),
-                  passwordInput(),
-                  signUpButton(),
-                  footer(),
-                ],
+          body: Center(
+            child: Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: defaultMargin,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    header(),
+                    fullNameInput(),
+                    emailInput(),
+                    passwordInput(),
+                    signUpButton(),
+                    footer(),
+                  ],
+                ),
               ),
             ),
           ),
