@@ -397,12 +397,60 @@ class MapsEmergency extends StatelessWidget {
   }
 }
 
-class MangaThumbnail extends StatelessWidget {
-  const MangaThumbnail({Key? key}) : super(key: key);
+class CardPodcast extends StatelessWidget {
+  const CardPodcast({
+    Key? key,
+    this.imageCover,
+    required this.title,
+    this.route,
+  }) : super(key: key);
+
+  final String? imageCover;
+  final String title;
+  final String? route;
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: size.width * 0.28,
+              height: 90,
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(
+                    imageCover.toString(),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Text(
+              title.toString(),
+              style: primaryTextStyle.copyWith(
+                fontSize: 10,
+                fontWeight: medium,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -426,13 +474,13 @@ class ListKomik extends StatelessWidget {
       width: size.width * 0.27,
       margin: EdgeInsets.symmetric(
         horizontal: 5,
-        vertical: 10,
+        vertical: 5,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 120,
+            height: 150,
             decoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(7),
@@ -445,17 +493,17 @@ class ListKomik extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.symmetric(
-              vertical: 5,
+              vertical: 8,
               horizontal: 3,
             ),
             child: Text(
               title.toString(),
               style: primaryTextStyle.copyWith(
-                fontSize: 12,
+                fontSize: 10,
                 fontWeight: bold,
               ),
-              maxLines: 2,
               overflow: TextOverflow.ellipsis,
+              maxLines: 2,
             ),
           )
         ],
@@ -487,14 +535,13 @@ class CardArticle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
           Row(
             children: [
               Container(
                 width: 40,
-                height: 40,
+                height: 43,
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7),
@@ -519,7 +566,7 @@ class CardArticle extends StatelessWidget {
                           nameUser.toString(),
                           style: primaryTextStyle.copyWith(
                             fontSize: 12,
-                            fontWeight: medium,
+                            fontWeight: semibold,
                           ),
                         ),
                       ),
@@ -604,12 +651,16 @@ class CardArticle extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
-            height: 10,
-            thickness: 2,
-            indent: 3,
-            endIndent: 3,
-            color: Color.fromARGB(100, 156, 156, 156),
+          Container(
+            margin: EdgeInsets.only(
+              bottom: 15,
+            ),
+            width: double.infinity,
+            height: 2,
+            decoration: BoxDecoration(
+              color: backgroundFormColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
           )
         ],
       ),
@@ -715,6 +766,64 @@ class CardEducation extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class EducationCategory extends StatelessWidget {
+  const EducationCategory({
+    Key? key,
+    required this.images,
+    required this.title,
+    this.route,
+  }) : super(key: key);
+
+  final String images;
+  final String title;
+  final String? route;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              (route != null)
+                  ? Navigator.pushNamed(context, route.toString())
+                  : null;
+            },
+            child: Container(
+              width: 110,
+              height: 93,
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(5),
+                  ),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(images),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Text(
+              title.toString(),
+              style: primaryTextStyle.copyWith(
+                fontSize: 11,
+                fontWeight: medium,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

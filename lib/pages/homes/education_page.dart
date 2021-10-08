@@ -43,22 +43,6 @@ class EducationPage extends StatelessWidget {
     }
 
     Widget aktivitas() {
-      List<SliderComponent> aktivitasEdukasi = [
-        SliderComponent(
-          images: 'assets/images/konsultasi.png',
-          title: 'Komik',
-        ),
-        // fiture 2
-        SliderComponent(
-          images: 'assets/images/konsultasi.png',
-          title: 'Artikel',
-        ),
-        // fiture 3
-        SliderComponent(
-          images: 'assets/images/konsultasi.png',
-          title: 'PodCast',
-        ),
-      ];
       return Container(
         margin: EdgeInsets.symmetric(
           vertical: 0,
@@ -85,7 +69,25 @@ class EducationPage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: [
                   Row(
-                    children: [SliderBox(listItems: aktivitasEdukasi)],
+                    children: [
+                      // fiture 1
+                      EducationCategory(
+                        images:
+                            'assets/images/cover_comic/Manhua-Like-Apotheosis.jpg',
+                        title: 'Komik',
+                      ),
+                      // fiture 2
+                      EducationCategory(
+                        images: 'assets/images/Artikel/Mengurangi_Stress.jpg',
+                        title: 'Artikel',
+                      ),
+                      // fiture 3
+                      EducationCategory(
+                        images:
+                            'assets/images/PodCast/img-profile-podcast.jpeg',
+                        title: 'Podcast',
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -116,28 +118,28 @@ class EducationPage extends StatelessWidget {
             Wrap(
               children: [
                 ListKomik(
-                  image: 'assets/images/img_depresion.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_1.jpg',
+                  title: 'Solo Leveling',
                 ),
                 ListKomik(
-                  image: 'assets/images/konsultasi.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_2.jpg',
+                  title: 'Log Horizon',
                 ),
                 ListKomik(
-                  image: 'assets/images/img_depresion.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_3.jpg',
+                  title: 'Black Clover',
                 ),
                 ListKomik(
-                  image: 'assets/images/konsultasi.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_4.jpg',
+                  title: 'i\'m An Evil God ',
                 ),
                 ListKomik(
-                  image: 'assets/images/img_depresion.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_5.png',
+                  title: 'Reon And Friends',
                 ),
                 ListKomik(
-                  image: 'assets/images/konsultasi.png',
-                  title: 'Sahabat Sejati',
+                  image: 'assets/images/cover_comic/Cover_Komik_7.jpg',
+                  title: '339 Year In Prison ',
                 ),
               ],
             )
@@ -147,19 +149,6 @@ class EducationPage extends StatelessWidget {
     }
 
     Widget article() {
-      List<CardArticle> listArticle = [];
-      CardArticle example = CardArticle(
-        imgProfile: 'assets/images/man.jpg',
-        nameUser: 'Nestiawan Ferdiyanto',
-        bioUser: 'Hidup Lebih Baik',
-        imgCover: 'assets/images/img_depresion.png',
-        titleArticle:
-            'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
-        dateArticle: '2 Minggu yang lalu',
-      );
-      for (int i = 0; i < 5; i++) {
-        listArticle.add(example);
-      }
       return Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,10 +166,86 @@ class EducationPage extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: listArticle,
-            )
+            CardArticle(
+              imgProfile: 'assets/images/man.jpg',
+              nameUser: 'Nestiawan Ferdiyanto',
+              bioUser: 'Hidup Lebih Baik',
+              imgCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
+              titleArticle:
+                  'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
+              dateArticle: '2 Minggu yang lalu',
+            ),
+
+            CardArticle(
+              imgProfile: 'assets/images/man.jpg',
+              nameUser: 'Nestiawan Ferdiyanto',
+              bioUser: 'Hidup Lebih Baik',
+              imgCover: 'assets/images/Artikel/Meredakan_Cemas.jpg',
+              titleArticle:
+                  'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
+              dateArticle: '2 Minggu yang lalu',
+            ),
+
+            CardArticle(
+              imgProfile: 'assets/images/man.jpg',
+              nameUser: 'Nestiawan Ferdiyanto',
+              bioUser: 'Hidup Lebih Baik',
+              imgCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
+              titleArticle:
+                  'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
+              dateArticle: '2 Minggu yang lalu',
+            ),
             // article,
+          ],
+        ),
+      );
+    }
+
+    Widget podcast() {
+      return Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(
+                vertical: 20,
+              ),
+              child: Text(
+                'Podcast yang mungkin kamu suka',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: semibold,
+                ),
+              ),
+            ),
+            Wrap(
+              children: [
+                CardPodcast(
+                  title: 'Pengembangan Diri',
+                  imageCover: 'assets/images/Artikel/pengembangan_diri.jpg',
+                ),
+                CardPodcast(
+                  title: 'Pengendalian Emosi',
+                  imageCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
+                ),
+                CardPodcast(
+                  title: 'Meredakan Cemas',
+                  imageCover: 'assets/images/Artikel/Meredakan_Cemas.jpg',
+                ),
+                CardPodcast(
+                  title: 'Mengurangi Stress',
+                  imageCover: 'assets/images/Artikel/Mengurangi_Stress.jpg',
+                ),
+                CardPodcast(
+                  title: 'Pengembangan Diri',
+                  imageCover: 'assets/images/Artikel/Meredakan_Cemas.jpg',
+                ),
+                CardPodcast(
+                  title: 'Bahaya Pikiran Negatif',
+                  imageCover: 'assets/images/Artikel/Pengendalian_Emosi.png',
+                ),
+              ],
+            ),
           ],
         ),
       );
@@ -215,12 +280,7 @@ class EducationPage extends StatelessWidget {
             aktivitas(),
             listKomik(),
             article(),
-            Wrap(
-              children: [
-                // cardEducation(),
-                // cardEducation(),
-              ],
-            )
+            podcast(),
           ],
         ),
       ),
