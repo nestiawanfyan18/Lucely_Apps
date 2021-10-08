@@ -86,6 +86,7 @@ class MainArticlePage extends StatelessWidget {
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
+              route: '/eduation-view-article',
             ),
 
             CardArticle(
@@ -96,6 +97,7 @@ class MainArticlePage extends StatelessWidget {
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
+              route: '/eduation-view-article',
             ),
 
             CardArticle(
@@ -106,6 +108,7 @@ class MainArticlePage extends StatelessWidget {
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
+              route: '/eduation-view-article',
             ),
 
             CardArticle(
@@ -116,6 +119,7 @@ class MainArticlePage extends StatelessWidget {
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
+              route: '/eduation-view-article',
             ),
 
             CardArticle(
@@ -126,6 +130,7 @@ class MainArticlePage extends StatelessWidget {
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
+              route: 'eduation-view-article',
             ),
 
             CardArticle(
@@ -136,6 +141,7 @@ class MainArticlePage extends StatelessWidget {
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
+              route: '/eduation-view-article',
             ),
 
             CardArticle(
@@ -146,6 +152,7 @@ class MainArticlePage extends StatelessWidget {
               titleArticle:
                   'Cara untuk Meredakan emosi ketika dalam kondisi yang tidak kondusif ',
               dateArticle: '2 Minggu yang lalu',
+              route: '/eduation-view-article',
             ),
           ],
         ),
@@ -153,6 +160,7 @@ class MainArticlePage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: appBarHeight,

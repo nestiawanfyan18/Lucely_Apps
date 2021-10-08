@@ -523,6 +523,7 @@ class CardArticle extends StatelessWidget {
     this.imgCover,
     required this.titleArticle,
     required this.dateArticle,
+    this.route,
   }) : super(key: key);
 
   final String? imgProfile;
@@ -531,6 +532,7 @@ class CardArticle extends StatelessWidget {
   final String? imgCover;
   final String titleArticle;
   final String dateArticle;
+  final String? route;
 
   @override
   Widget build(BuildContext context) {
@@ -583,72 +585,79 @@ class CardArticle extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            margin: EdgeInsets.symmetric(
-              vertical: 15,
-            ),
-            child: Row(
-              children: [
-                Container(
-                  width: 88,
-                  height: 80,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(7),
-                    ),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(
-                        imgCover.toString(),
+          GestureDetector(
+            onTap: () {
+              (route != null)
+                  ? Navigator.pushNamed(context, route.toString())
+                  : null;
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(
+                vertical: 15,
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 88,
+                    height: 80,
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage(
+                          imgCover.toString(),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Container(
-                    height: 65,
-                    margin: EdgeInsets.only(
-                      left: 15,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            titleArticle.toString(),
-                            style: primaryTextStyle.copyWith(
-                              fontSize: 12,
-                              fontWeight: bold,
+                  Expanded(
+                    child: Container(
+                      height: 65,
+                      margin: EdgeInsets.only(
+                        left: 15,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            child: Text(
+                              titleArticle.toString(),
+                              style: primaryTextStyle.copyWith(
+                                fontSize: 12,
+                                fontWeight: bold,
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                dateArticle.toString(),
-                                style: secondaryTextStyle.copyWith(
-                                  fontSize: 10,
-                                  fontWeight: medium,
+                          Container(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  dateArticle.toString(),
+                                  style: secondaryTextStyle.copyWith(
+                                    fontSize: 10,
+                                    fontWeight: medium,
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                width: 18,
-                                height: 18,
-                                child: Image.asset(
-                                    'assets/images/favorite_icon.png'),
-                              ),
-                            ],
+                                Container(
+                                  width: 18,
+                                  height: 18,
+                                  child: Image.asset(
+                                      'assets/images/favorite_icon.png'),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
           Container(
