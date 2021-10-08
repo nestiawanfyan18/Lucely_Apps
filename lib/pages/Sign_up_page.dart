@@ -61,7 +61,7 @@ class SignUp extends StatelessWidget {
     Widget signUpButton() => RegularButton(
           color: primaryColor,
           text: "Sign Up",
-          contextParent: context,
+          context: context,
           route: '/home',
         );
 
