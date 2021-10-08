@@ -7,10 +7,17 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   static const List<SliderComponent> listAktivitas = [
     SliderComponent(
-        imageUrl: "assets/images/konsultasi.png", label: 'Konsultasi'),
-    SliderComponent(imageUrl: 'assets/images/education.png', label: 'Edukasi'),
+      images: "assets/images/konsultasi.png",
+      title: 'Konsultasi',
+    ),
     SliderComponent(
-        imageUrl: 'assets/images/mood_tracker.png', label: 'Mood Tracker'),
+      images: 'assets/images/education.png',
+      title: 'Edukasi',
+    ),
+    SliderComponent(
+      images: 'assets/images/mood_tracker.png',
+      title: 'Mood Tracker',
+    ),
   ];
 
   @override
