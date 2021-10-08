@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucely/pages/Sign_up_page.dart';
 import 'package:lucely/pages/homes/education_page.dart';
+import 'package:lucely/pages/homes/education_pages/komik_main.dart';
 import 'package:lucely/pages/homes/education_pages/list_Education_page.dart';
 import 'package:lucely/pages/homes/emergency_pages/get_psycology_emergencey_page.dart';
 import 'package:lucely/pages/homes/emergency_pages/search_psikologi_page.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/emergency-get-psycology': (context) => GetPsycologyEmergencyPage(),
         '/emergency-search-psikologi': (context) =>
             SearchPsikologiEmergencyPage(),
+        '/komik-main': (context) => KomikMainPage(),
       },
     );
   }

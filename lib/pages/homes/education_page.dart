@@ -72,10 +72,10 @@ class EducationPage extends StatelessWidget {
                     children: [
                       // fiture 1
                       EducationCategory(
-                        images:
-                            'assets/images/cover_comic/Manhua-Like-Apotheosis.jpg',
-                        title: 'Komik',
-                      ),
+                          images:
+                              'assets/images/cover_comic/Manhua-Like-Apotheosis.jpg',
+                          title: 'Komik',
+                          route: '/komik-main'),
                       // fiture 2
                       EducationCategory(
                         images: 'assets/images/Artikel/Mengurangi_Stress.jpg',
