@@ -938,7 +938,6 @@ class SearchButtonAppBar extends StatelessWidget {
       height: 50,
       margin: EdgeInsets.symmetric(
         vertical: 15,
-        horizontal: 15,
       ),
       padding: EdgeInsets.all(6),
       child: IconButton(
@@ -952,7 +951,315 @@ class SearchButtonAppBar extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: Colors.transparent,
+        border: Border.all(
+          width: 2.0,
+          color: Colors.black,
+        ),
         borderRadius: BorderRadius.circular(100),
+      ),
+    );
+  }
+}
+
+class ListLikeComic extends StatelessWidget {
+  const ListLikeComic({
+    Key? key,
+    required this.title,
+    required this.like,
+    required this.image,
+    this.route,
+  }) : super(key: key);
+
+  final String title;
+  final String image;
+  final String like;
+  final String? route;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
+      width: size.width * 0.29,
+      margin: EdgeInsets.only(
+        top: 10,
+        right: 5,
+        bottom: 20,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: 120,
+              height: 100,
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    image.toString(),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: 8,
+              bottom: 3,
+            ),
+            child: Text(
+              title.toString(),
+              style: primaryTextStyle.copyWith(
+                fontSize: 11,
+                fontWeight: semibold,
+              ),
+            ),
+          ),
+          Container(
+            child: Row(
+              children: [
+                Container(
+                  width: 10,
+                  height: 10,
+                  child: Image.asset('assets/images/love_red_icon.png'),
+                ),
+                SizedBox(width: 6),
+                Container(
+                  child: Text(
+                    '$like Ribu Suka',
+                    style: secondaryTextStyle.copyWith(
+                      fontSize: 10,
+                      fontWeight: regular,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TitleListComic extends StatelessWidget {
+  const TitleListComic({
+    Key? key,
+    required this.title,
+    this.route,
+  }) : super(key: key);
+
+  final String title;
+  final String? route;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        vertical: 20,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title.toString(),
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: bold,
+            ),
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: Text(
+              'Lihat Lebih Banyak Lagi >',
+              style: primaryTextStyle.copyWith(
+                fontSize: 10,
+                fontWeight: regular,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class GenresComic extends StatelessWidget {
+  const GenresComic({
+    Key? key,
+    this.genre,
+  }) : super(key: key);
+
+  final String? genre;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        margin: EdgeInsets.only(
+          right: 10,
+        ),
+        padding: EdgeInsets.all(10),
+        child: Text(
+          genre.toString(),
+          style: thiridTextStyle.copyWith(
+            fontWeight: medium,
+            fontSize: 10,
+          ),
+        ),
+        decoration: BoxDecoration(
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(
+            4,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PodcastPopular extends StatelessWidget {
+  const PodcastPopular({
+    Key? key,
+    required this.images,
+    required this.title,
+    required this.topic,
+    this.route,
+  }) : super(key: key);
+
+  final String images;
+  final String topic;
+  final String title;
+  final String? route;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              (route != null)
+                  ? Navigator.pushNamed(context, route.toString())
+                  : null;
+            },
+            child: Container(
+              width: 110,
+              height: 93,
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(5),
+                  ),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(images),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            width: 110,
+            margin: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  topic.toString(),
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 11,
+                    fontWeight: medium,
+                  ),
+                ),
+                Text(
+                  title.toString(),
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 11,
+                    fontWeight: medium,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: true,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class PodcastArtist extends StatelessWidget {
+  const PodcastArtist({
+    Key? key,
+    required this.images,
+    required this.name,
+    this.route,
+  }) : super(key: key);
+
+  final String images;
+  final String name;
+  final String? route;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              (route != null)
+                  ? Navigator.pushNamed(context, route.toString())
+                  : null;
+            },
+            child: Container(
+              width: 80,
+              height: 80,
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(100),
+                  ),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(images),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            width: 90,
+            margin: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  name.toString(),
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 11,
+                    fontWeight: medium,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: true,
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

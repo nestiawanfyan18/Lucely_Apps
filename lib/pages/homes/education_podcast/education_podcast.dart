@@ -6,6 +6,101 @@ import 'package:lucely/component.dart';
 class PodcastMainPage extends StatelessWidget {
   const PodcastMainPage({Key? key}) : super(key: key);
 
+  Widget popularToday() {
+    return Container(
+      child: Column(
+        children: [
+          TitleListComic(title: 'Populer saat ini'),
+          SizedBox(
+            height: 165,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    PodcastPopular(
+                      images: 'assets/images/Artikel/pengembangan_diri.jpg',
+                      topic: 'Kehidupan',
+                      title: 'Bertahan Dalam Kesendirian',
+                    ),
+                    PodcastPopular(
+                      images: 'assets/images/Artikel/Pengendalian_Emosi.png',
+                      topic: 'Kebahagiaan',
+                      title: 'Senang Dengan Diri Sendiri',
+                    ),
+                    PodcastPopular(
+                      images: 'assets/images/Artikel/Meredakan_Cemas.jpg',
+                      topic: 'Meditasi',
+                      title: 'Kelola Stress Kamu',
+                    ),
+                    PodcastPopular(
+                      images: 'assets/images/Artikel/Mengurangi_Stress.jpg',
+                      topic: 'Kehidupan',
+                      title: 'Bertahan Dalam Kesendirian',
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget newestPost() {
+    //on development
+    return Container(
+      child: Column(
+        children: [
+          TitleListComic(title: 'Siaran Terbaru'),
+        ],
+      ),
+    );
+  }
+
+  Widget recommendedArtist() {
+    return Container(
+      child: Column(
+        children: [
+          TitleListComic(title: 'Artis yang disarankan'),
+          SizedBox(
+            height: 165,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    PodcastArtist(
+                      images: 'assets/images/PodCast/dokter.png',
+                      name: 'Dr.Mental',
+                    ),
+                    PodcastArtist(
+                      images: 'assets/images/PodCast/dokter.png',
+                      name: 'Dr.Mental',
+                    ),
+                    PodcastArtist(
+                      images: 'assets/images/PodCast/dokter.png',
+                      name: 'Dr.Mental',
+                    ),
+                    PodcastArtist(
+                      images: 'assets/images/PodCast/dokter.png',
+                      name: 'Dr.Mental',
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +132,11 @@ class PodcastMainPage extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: defaultMargin),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [],
+          children: [
+            popularToday(),
+            newestPost(),
+            recommendedArtist(),
+          ],
         ),
       ),
     );
