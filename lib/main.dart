@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucely/pages/Sign_up_page.dart';
 import 'package:lucely/pages/homes/education_page.dart';
-import 'package:lucely/pages/homes/education_pages/komik_main.dart';
+import 'package:lucely/pages/homes/education_comic/komik_main.dart';
 import 'package:lucely/pages/homes/education_pages/list_Education_page.dart';
 import 'package:lucely/pages/homes/education_podcast/education_podcast.dart';
 import 'package:lucely/pages/homes/educaton_article/main_article_page.dart';
