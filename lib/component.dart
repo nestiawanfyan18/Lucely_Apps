@@ -927,3 +927,33 @@ class RecommendedKomikList extends StatelessWidget {
     );
   }
 }
+
+class SearchButtonAppBar extends StatelessWidget {
+  const SearchButtonAppBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 45,
+      height: 50,
+      margin: EdgeInsets.symmetric(
+        vertical: 15,
+        horizontal: 15,
+      ),
+      padding: EdgeInsets.all(6),
+      child: IconButton(
+        onPressed: () {
+          // Navigator.pushNamed(context, '/emergency');
+        },
+        icon: Image.asset(
+          "assets/images/akar-icons_search.png",
+          width: 30,
+        ),
+      ),
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(100),
+      ),
+    );
+  }
+}

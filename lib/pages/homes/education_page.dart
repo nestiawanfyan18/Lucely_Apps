@@ -92,6 +92,7 @@ class _EducationPageState extends State<EducationPage> {
                         images:
                             'assets/images/PodCast/img-profile-podcast.jpeg',
                         title: 'Podcast',
+                        route: '/podcast-main',
                       ),
                     ],
                   ),

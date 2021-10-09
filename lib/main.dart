@@ -4,6 +4,7 @@ import 'package:lucely/pages/Sign_up_page.dart';
 import 'package:lucely/pages/homes/education_page.dart';
 import 'package:lucely/pages/homes/education_pages/komik_main.dart';
 import 'package:lucely/pages/homes/education_pages/list_Education_page.dart';
+import 'package:lucely/pages/homes/education_podcast/education_podcast.dart';
 import 'package:lucely/pages/homes/educaton_article/main_article_page.dart';
 import 'package:lucely/pages/homes/educaton_article/view_article_page.dart';
 import 'package:lucely/pages/homes/emergency_pages/get_psycology_emergencey_page.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/emergency-search-psikologi': (context) =>
             SearchPsikologiEmergencyPage(),
         '/komik-main': (context) => KomikMainPage(),
+        '/podcast-main': (context) => PodcastMainPage(),
       },
     );
   }
